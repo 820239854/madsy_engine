@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "Graphics/TextureManager.h"
+#include "Physics/Transform.h"
 
 Engine* Engine::s_Instance = nullptr;
 
@@ -22,8 +23,16 @@ bool Engine::Init(){
         return false;
     }
 
-    // load texture
     TextureManager::GetInstance()->Load("tree", "assets/tree.png");
+
+    Vector2D v1(1,1), v2(1,1), v3;
+    v3 = v1+v2;
+
+    Transform tf(2,2);
+
+    tf.Log("Transform: ");
+    v3.Log("V3: ");
+
     return m_IsRunning = true;
 }
 
@@ -35,7 +44,6 @@ void Engine::Render(){
     SDL_SetRenderDrawColor(m_Renderer, 124, 218, 254, 255);
     SDL_RenderClear(m_Renderer);
 
-    // render texture
     TextureManager::GetInstance()->Draw("tree", 100, 100,347, 465);
     SDL_RenderPresent(m_Renderer);
 }

@@ -1,5 +1,6 @@
 #include "TextureManager.h"
 #include "Core/Engine.h"
+#include "Physics/Vector2D.h"
 
 TextureManager* TextureManager::s_Instance = nullptr;
 
