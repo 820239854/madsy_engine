@@ -25,14 +25,8 @@ bool Engine::Init(){
 
     TextureManager::GetInstance()->Load("tree", "assets/tree.png");
 
-    Vector2D v1(1,1), v2(1,1), v3;
-    v3 = v1+v2;
-
-    Transform tf(2,2);
-
-    tf.Log("Transform: ");
-    v3.Log("V3: ");
-
+    Transform tf;
+    tf.Log();
     return m_IsRunning = true;
 }
 
@@ -64,7 +58,8 @@ bool Engine::Clean(){
     SDL_DestroyWindow(m_Window);
     IMG_Quit();
     SDL_Quit();
-    return true;
+
+	return true;
 }
 
 void Engine::Quit(){
